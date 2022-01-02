@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Payment Page</title>
+<link href= "/public/assets/styles.css" rel="stylesheet" type="text/css" />
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+  <div>
+  <img src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1607103555-51wmv-2LokL.jpg?crop=1xw:0.993xh;center,top&resize=480:*">
+  <p id='text'>A book written by Joanne Tomkins</p>
+  </div>
+  <p style="color: black;">You can get this book for &#x20B9 500 </p>
+  <div>
+  <button class='pay' id ='payGo'>Buy Now</button>
+</div>
+</body>
+<script>
+axios.post('/order').then((info)=>{
+    console.log("info",info)
+     var options = {
+    "key":"rzp_test_RupmLOZSQBEt13",
+    "name": "Acme Corp",
+    "description": "Test Transaction",
+    "image": "https://example.com/your_logo",
+    "order_id":info.data.id,
+    "callback_url":'http://localhost:4000/verifyPayment',
+    "redirect": true,
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+ var rzp1 = new Razorpay(options)
+ document.getElementById('payGo').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+ }
+ })
+</script>
+</html>

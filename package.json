@@ -1,0 +1,28 @@
+{
+  "name": "myFirstRepo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./Razorpay/paymentServer.js",
+  "scripts": {
+    "start": "nodemon paymentServer.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riyas-do/myFirstRepo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/riyas-do/myFirstRepo/issues"
+  },
+  "homepage": "https://github.com/riyas-do/myFirstRepo#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15",
+    "razorpay": "^2.8.0"
+  }
+}
